@@ -1,0 +1,32 @@
+<h1><%= @post.title %></h1>
+
+<p><%= @post.body %></p>
+
+<ul>
+  <li><%= link_to "Edit", edit_post_path(@post) %></li>
+  <li><%= link_to "Destroy", article_path(post), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
+
+
+
+
+
+
+<%= form_with model: [ @post, @post.comments.build ] do |form| %>
+
+  <p>
+        <%= form.label :commenter %><br>
+
+    <%= form.text_field :commenter %>
+  </p>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

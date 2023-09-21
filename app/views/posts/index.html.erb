@@ -1,0 +1,30 @@
+
+<div class="col-xl-4 col-md-6 col-sm-8 col-10" style="margin: auto;">
+<p style="color: green"><%= notice %></p>
+
+
+
+<div id="posts" class="text-center">
+  <div class="d-flex flex-row bd-highlight mb-3">
+  <h1>All Posts</h1>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> 
+
+
+    <lottie-player src="https://lottie.host/7261a54e-f284-4f39-8a84-761df7a0436e/YP1NsqOWnr.json" background="transparent" speed="1" style="width: 70px; height: 70px;" loop autoplay></lottie-player>
+</div>
+
+  <%# if can? :update, @posts %>
+  <%# end %>
+
+  
+
+
+<div id="posts">
+  
+  <% @posts.each do |post| %>
+    <%= render post %>
+  <% end %>
+</div>
+<%= paginate @posts %>
+</div>
+

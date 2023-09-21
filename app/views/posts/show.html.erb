@@ -1,0 +1,79 @@
+
+
+<div class="col-xl-4 col-md-6 col-sm-8 col-10" style="margin: auto;">
+  
+<p style="color: green"><%= notice %>
+
+<%= render @post %>
+</p>
+
+<div class="d-flex justify-content-around">
+
+<% if user_signed_in? %>
+<p>
+ <%= link_to "Back to posts", posts_path, class: "btn btn-dark"%>
+ </p>
+
+    <% if can? :edit ,@post%>
+        <p><%= link_to "Edit this post", edit_post_path(@post),class: "btn btn-info" %></p>
+    <%end%>
+
+      <% if can? :destroy ,@post%>
+            <p><%= button_to "Destroy this post", @post, method: :delete, form: { data: { turbo_confirm: "Are you sure?" } }, class: "btn btn-danger" %></p>
+      <%end%>
+
+    
+
+  </div>
+     <%# <% binding.pry %>
+
+     
+       <div class="card">
+        <div class="text-center">
+        <div class="card-header">  <h2>Add a comment</h2></div>
+        
+        <%= render 'comments/form' %>
+        </div>
+        
+        <%#binding.pry%>
+        <br><br>
+        
+        <div class="card-header"> 
+          <% if @post.comments.count == 0 %>
+             <h2>No Comments</h2></div>
+           <% else %>
+             <h2>Comments</h2></div>
+           <%end%>
+
+        <div class="container">
+        <% @post.comments.last(6).each do |i| %>
+        <b><p><%= i.commenter%></p></b>
+        <p><%= i.body%></p>
+        <%end%>
+        </div>
+        </div>
+
+        
+      
+        
+        
+
+        
+       <%# <%= render @post.comments %>
+
+       
+
+       
+
+
+
+       
+
+<%end%>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,139 @@
+
+<dic class="container">
+<div id="<%= dom_id post %>">
+
+<div class="card ">
+  <div class="card-body">
+     <div class="d-flex justify-content-start">
+        
+
+
+        <% if post.user.image.attached? %>
+  <%= image_tag(post.user.image, style: "height:50px; width:50px;", class: "rounded-circle img-thumbnail  img-fluid", size: "40x40") %>
+<% else %>
+   <%= image_tag "user.png", size: "40x40" %>
+<% end %>
+
+
+
+    <p><strong>    <% if current_user.id == post.user.id %>
+  You
+  <%else%>
+    <%= post.user.email %>
+  <%end%>
+  </p></strong>
+  
+        </div>
+        <br>
+    <h5 class="card-title">
+      <p><strong> Title:-
+    </strong><%= post.title %></p>
+</h5>
+<%# binding.break%>
+  <%if post.avatar.present?%> 
+    <%= image_tag post.avatar.url, class: "avatar-show"%>
+  <%end%>
+
+
+    <%# <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> %>
+    <p class="card-text"><p><strong>Description:-</strong>
+    <%= post.description %>
+  </p></p>
+  <p class="card-text">
+<p><strong>Caption:-</strong>
+    <%= post.keywords %>
+  </p>
+
+  <p class="card-text">
+
+<%# <%binding.pry%> 
+   <div class="alert alert-dark" role="alert">
+       <td><strong>Last comment -</strong><%= post.comments.last&.body%>
+    
+  </td>
+       </div>
+
+
+       <td>
+</td>
+
+
+  <div class="d-flex justify-content-around">
+
+   <div>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> 
+
+
+    <lottie-player src="https://lottie.host/bb600358-0fe3-409e-b9ef-14af7333618f/7JQawJYAiA.json" background="transparent" speed="1" style="width: 40px; height: 40px;" loop autoplay></lottie-player>
+    <%= post.impressionist_count %>
+    </div>
+   <div>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> 
+
+
+    <lottie-player src="https://lottie.host/0ea1f704-a8cc-4a55-aaee-9624fd3403b3/MfcApnXxwM.json" background="transparent" speed="1" style="width: 40px; height: 40px;" loop autoplay></lottie-player>
+    <%= pluralize(post.comments.count,'Comment') %>
+   </div>
+   <div>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> 
+
+
+    <lottie-player src="https://lottie.host/b51894e3-df6f-4fe3-89fe-f5910d1f812d/9evwQK3tk3.json" background="transparent" speed="1" style="width: 40px; height: 40px;" loop autoplay></lottie-player>
+    <td><%= time_ago_in_words(post.created_at) %></td>
+    </div>
+    
+
+    <div>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> 
+
+
+    <lottie-player src="https://lottie.host/0ced8f52-434c-4790-986d-f51e9425c3aa/zPhxcWoZAs.json" background="transparent" speed="1" style="width: 40px; height: 40px;" loop autoplay></lottie-player>
+    <td><%= post.like %></td>
+    <%= link_to "Like me", post, id: "li", data: { post_id: post.id }%>
+    </div>
+ 
+  <%# <button onclick = "like(post.id)" > Like me </button> %>
+  
+  </div>
+  </p>
+  <p>
+  <%= link_to "Open this post", post,class:"btn btn-primary"%>
+  </p>
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+
+
+  $("#li").on('click',function(){
+    var customData = $(this).data('post-id');
+    console.log(customData);
+    $.ajax({
+      url: "/like",
+      type: "post",
+      data: { post_id: customData }
+         });
+            
+
+  })
+  
+      // function like(postId){  
+      //   debugger
+      //   $.ajax({
+      //    url: "/like",
+      //    type: "post",
+      //    data: { id: postId}
+         
+         
+         
+         
+      //   });
+      
+      // }  
+
+
+    </script>
+
+
+

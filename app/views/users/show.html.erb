@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>About Us - Blog Creators</title>
+  <!-- Include CSS styles if needed -->
+</head>
+<body>
+  <header>
+    <!-- Your navigation menu (if applicable) -->
+    <nav>
+      <ul>
+        
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>Your Profile</h1>
+    <% if user_signed_in? %>
+  <form class="form-inline my-2 my-lg-0">
+       
+<% if current_user.admin? %>
+       <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> 
+
+
+    <lottie-player src="https://lottie.host/8356376b-0575-4142-897a-68c952218520/4NlcNSztCc.json" background="transparent" speed="1" style="width: 70px; height: 70px;" loop autoplay></lottie-player>
+
+<p class="text-muted mb-4">ADMIN<span class="mx-2"></span>
+      <% elsif current_user.editor? %>
+      <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> 
+
+
+    <lottie-player src="https://lottie.host/69718adb-4517-4de8-88ef-d1ddb7b39445/9SmftKAcfk.json" background="transparent" speed="1" style="width: 70px; height: 70px;" loop autoplay></lottie-player>
+     <p class="text-muted mb-4">EDITOR<span class="mx-2"></span>
+     <%else%>
+
+     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> 
+
+
+    <lottie-player src="https://lottie.host/821e8bb1-2bd1-493b-a399-cb6a888a75ce/RinngavHv5.json" background="transparent" speed="1" style="width: 70px; height: 70px;" loop autoplay></lottie-player>
+<p class="text-muted mb-4">USER<span class="mx-2"></span>
+      <% end %>
+     <%= link_to "UPGRADE",home_upgrade_path,class:"btn btn-primary"%>
+    </form>
+    <%end%>
+
+
+
+    
+</body>
+</html>
+
+
+
+
+
+<section class="vh-100" style="background-color: #eee;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-12 col-xl-4">
+
+        <div class="card" style="border-radius: 15px;">
+          <div class="card-body text-center">
+
+
+              <% if current_user.image.attached? %>
+  <%= image_tag(current_user.image, style: "height:150px; width:150px;",class: "rounded-circle img-thumbnail  img-fluid") %>
+<% else %>
+  <%= link_to edit_user_registration_path do %>
+    <i class="material-icons right">account_circle</i>
+  <% end %>
+<% end %>
+
+
+
+
+            <h4 class="mb-2"><%= @user.username %></h4>
+            <p class="text-muted mb-4"><%= @user.email %><span class="mx-2"></span>
+            <div class="mb-4 pb-2">
+            
+            <button type="button" class="btn-rounded btn-lg">
+              <%= @user.bio %>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

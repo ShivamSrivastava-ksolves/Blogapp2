@@ -1,0 +1,20 @@
+<div class="col-xl-4 col-md-6 col-sm-8 col-10" style="margin: auto;">
+<div class="d-flex flex-row bd-highlight mb-3">
+<h1>Your Posts</h1>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> 
+
+
+    <lottie-player src="https://lottie.host/2a925857-a0db-4764-b5e5-85b5d97a5092/jqSAOv6hNx.json" background="transparent" speed="1" style="width: 50px; height: 50px;" loop autoplay></lottie-player>
+</div>
+<p style="color: green"><%= notice %></p>
+
+<div id="posts" class="text-center">
+
+<div id="posts">
+  <% @posts.each do |post| %>
+    <%if post.user.id == current_user.id%>
+      <%= render post %>
+    <% end %>
+  <% end %>
+</div>
+</div>

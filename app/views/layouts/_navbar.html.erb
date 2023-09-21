@@ -1,0 +1,94 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+      </li>
+      <div class="d-flex justify-content-around">
+      <h1><%= link_to "BLOGOPIDEA", posts_path, class: "navbar-brand", style: "font-size: 40px;" %>
+</h1>
+
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> 
+
+
+    <lottie-player src="https://lottie.host/26353a2b-f972-4578-b035-dda5cc6adb67/nnFGJwQZ1i.json" background="transparent" speed="1" style="width: 70px; height: 70px;" loop autoplay></lottie-player>
+ 
+</div>
+
+      
+      <% if user_signed_in? %>
+     
+    
+      
+      <li class="nav-item">
+        <%= link_to "Upload Post", new_post_path , class:"nav-link" %>
+      </li>
+       <li class="nav-item">
+        <%= link_to "View My Posts", posts_myposts_path, class:"nav-link" , style:"border:none;"%>
+      </li>
+       <li class="nav-item">
+        <%= link_to "Edit Account", edit_user_registration_path , class:"nav-link" , style:"border:none;"%>
+      </li>
+      <li class="nav-item">
+        <%= link_to "About us", home_about_path, class:"nav-link" %>
+      </li> 
+      <li class="nav-item">
+        <%= link_to "View my Profile", current_user, class:"nav-link" %>
+      </li> 
+      
+
+
+      <li class="nav-item">
+        <%= link_to "SignOut", destroy_user_session_path, class:"nav-link" ,form:{data:{ turbo_confirm: "Are you sure "}}, style:"border:none;"%>
+      </li>
+
+
+
+      <%else%>
+       <li class="nav-item">
+        <%= link_to "Signup", new_user_registration_path, class:"nav-link" %>
+      </li>
+     <%end%>
+     
+    </ul>
+  </div>
+
+ <% if user_signed_in? %>
+  <form class="form-inline my-2 my-lg-0">
+    
+       
+<% if current_user.admin? %>
+       <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> 
+
+
+    <lottie-player src="https://lottie.host/8356376b-0575-4142-897a-68c952218520/4NlcNSztCc.json" background="transparent" speed="1" style="width: 70px; height: 70px;" loop autoplay></lottie-player>
+
+
+      <% elsif current_user.editor? %>
+      <%= link_to "UPGRADE", home_upgrade_path ,class:"btn btn-primary"%>
+      <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> 
+
+
+    <lottie-player src="https://lottie.host/69718adb-4517-4de8-88ef-d1ddb7b39445/9SmftKAcfk.json" background="transparent" speed="1" style="width: 70px; height: 70px;" loop autoplay></lottie-player>
+     
+     <%else%>
+     <%= link_to "UPGRADE", home_upgrade_path,class:"btn btn-primary"%>
+
+     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> 
+
+
+    <lottie-player src="https://lottie.host/821e8bb1-2bd1-493b-a399-cb6a888a75ce/RinngavHv5.json" background="transparent" speed="1" style="width: 70px; height: 70px;" loop autoplay></lottie-player>
+
+      <% end %>
+    </form>
+    <%end%>
+
+  
+
+    </form>
+</nav>
