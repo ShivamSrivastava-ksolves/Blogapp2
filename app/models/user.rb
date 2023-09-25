@@ -11,9 +11,17 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
 
+         after_create do
+       stripe_customer = Stripe::Customer.create(email: email)
+       stripe_customer_id = stripe_customer.id
+       update(stripe_customer_id: stripe_customer_id)
+        end
+
+
 
   has_many :posts
   has_one_attached :image
+  has_many :comments, as: :commentable
 
 
    ROLES = %w{admin editor normal}

@@ -16,6 +16,8 @@
 
   <div class="container">
     <h1>Your Profile</h1>
+
+            <div class="mb-4 pb-2">
     <% if user_signed_in? %>
   <form class="form-inline my-2 my-lg-0">
        
@@ -42,6 +44,12 @@
       <% end %>
      <%= link_to "UPGRADE",home_upgrade_path,class:"btn btn-primary"%>
     </form>
+
+<p class="text-muted mb-4"><b>Customer id:  </b><%= current_user.stripe_customer_id %><span class="mx-2"></span>
+    <p class="text-muted mb-4"><b>Subscription Plan:  </b><%= current_user.plan %><span class="mx-2"></span>
+    <p class="text-muted mb-4"><b>Status:  </b><%= current_user.subscription_status %><span class="mx-2"></span>
+    <p class="text-muted mb-4"><b>Ends On:  </b><%= current_user.subscription_ends_at %><span class="mx-2"></span>
+
     <%end%>
 
 

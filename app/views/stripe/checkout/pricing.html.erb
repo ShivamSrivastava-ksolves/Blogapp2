@@ -1,0 +1,15 @@
+
+
+<%= button_to 'Billing portal', stripe_billing_portal_path,data: { turbo: "false"} %>
+<% @prices.each do |price| %>
+<div>
+<%= price.product.name %>
+<%= price.currency %>
+<%= price.unit_amount %>
+<%= price.recurring.interval %>
+<%= button_to 'Subscribe', stripe_checkout_path(price_id: price.id), data: {turbo: 'false'} %>
+
+</div>
+<% end %>
+
+

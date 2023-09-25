@@ -9,7 +9,7 @@ class Post < ApplicationRecord
 
   belongs_to :user
 
-  has_many :comments, dependent: :delete_all
+  has_many :comments, as: :commentable
   has_many :likes, dependent: :destroy
 
   validates :like, numericality: { greater_than_or_equal_to: 0 }
