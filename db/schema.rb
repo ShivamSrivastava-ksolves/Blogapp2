@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_25_075149) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_28_042030) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -100,7 +100,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_25_075149) do
   end
 
 # Could not dump table "users" because of following StandardError
-#   Unknown type 'strings' for column 'bio'
+#   Unknown type '' for column 'bio'
 
   create_table "votes", force: :cascade do |t|
     t.string "votable_type"

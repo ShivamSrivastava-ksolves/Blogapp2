@@ -51,6 +51,8 @@ gem 'kaminari'
 gem 'impressionist'
 gem 'cancancan'
 gem 'acts_as_votable'
+gem 'omniauth-github', '~> 2.0.0'
+gem "letter_opener", group: :development
 
 
 # Use Sass to process CSS

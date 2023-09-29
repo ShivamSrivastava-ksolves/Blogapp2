@@ -1,15 +1,70 @@
 
 
 <%= button_to 'Billing portal', stripe_billing_portal_path,data: { turbo: "false"} %>
+<div class="d-flex justify-content-around">
+
+<div class="card">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> 
+
+
+    <lottie-player src="https://lottie.host/69718adb-4517-4de8-88ef-d1ddb7b39445/9SmftKAcfk.json" background="transparent" speed="1" style="width: 350px; height: 350px;" loop autoplay></lottie-player>
+<b><center>
+    <p>Price - 5 rupee</p>
+    </center></b>
+<div class="container"><p><b>Admin subscription allows you to:-</b>
+
+    <div class="d-flex flex-column">
+  <div class="p-2">*Edit any post</div>
+  <div class="p-2">*Destroy any post</div>
+  <div class="p-2">*Create Unlimited posts </div>
+  <div class="p-2">*Read/Delete any comments</div>
+</p>
+</div>
+</div>
+
+
+</div>
+
+<div class="card">
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> 
+
+
+    <lottie-player src="https://lottie.host/8356376b-0575-4142-897a-68c952218520/4NlcNSztCc.json" background="transparent" speed="1" style="width: 350px; height: 350px;" loop autoplay></lottie-player>
+<b><center>
+    <p>Price - 10 rupee</p>
+    </center></b>
+<div class="container"><p><b>Admin subscription allows you to:-</b>
+
+    <div class="d-flex flex-column">
+  <div class="p-2">*Edit any post</div>
+  <div class="p-2">*Destroy its own</div>
+  <div class="p-2">*Create Unlimited posts </div>
+</p>
+</div>
+  
+</div>
+</div>
+
+
+</div>
+<div class="d-flex justify-content-around">
 <% @prices.each do |price| %>
 <div>
-<%= price.product.name %>
-<%= price.currency %>
-<%= price.unit_amount %>
-<%= price.recurring.interval %>
-<%= button_to 'Subscribe', stripe_checkout_path(price_id: price.id), data: {turbo: 'false'} %>
+
+
+
+    
+
+<br><%= button_to 'Subscribe', stripe_checkout_path(price_id: price.id), data: {turbo: 'false'} ,class: "btn btn-primary"%>
 
 </div>
 <% end %>
+</div>
+
+
+
+
+
+
 
 
