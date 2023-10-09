@@ -92,8 +92,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_28_042030) do
     t.string "keywords"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id", null: false
     t.string "userid"
+    t.integer "user_id", null: false
     t.string "avatar"
     t.integer "like", default: 0
     t.index ["user_id"], name: "index_posts_on_user_id"

@@ -26,12 +26,13 @@ can :read, Post
         can :destroy, Post, user_id: user.id
 
       elsif user && user.normal?
-        can :manage, Post, user_id: user.id
+
         can :read, :all
-        can :create, Post
+        can :create, Post, user_id: user.id
         can :like, Post
-        can :edit, Post
+        can :edit, Post,user_id: user.id
         can :destroy, Post, user_id: user.id
+        can :read, :sign_up
 
       end
 
